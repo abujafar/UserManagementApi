@@ -1,0 +1,38 @@
+@baseUrl = http://localhost:5023
+@token = demo-token
+@userId = 11111111-1111-1111-1111-111111111111
+
+### User routes reject requests without the demo bearer token
+GET {{baseUrl}}/api/users
+
+### List users
+GET {{baseUrl}}/api/users
+Authorization: Bearer {{token}}
+
+### Get a user by ID
+GET {{baseUrl}}/api/users/{{userId}}
+Authorization: Bearer {{token}}
+
+### Create a user
+POST {{baseUrl}}/api/users
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "name": "Avery Stone",
+  "email": "avery.stone@example.com"
+}
+
+### Update a user by ID
+PUT {{baseUrl}}/api/users/{{userId}}
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "name": "Avery Stone",
+  "email": "avery.updated@example.com"
+}
+
+### Delete a user by ID
+DELETE {{baseUrl}}/api/users/{{userId}}
+Authorization: Bearer {{token}}
